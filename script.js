@@ -8,16 +8,19 @@ console.log('go')
 // 4. Підрахунок необхідного часу та кількості палива для подолання переданої відстані з середньою швидкістю. Враховуй, що через кожні 4 години дороги водієві необхідно робити перерву на 1 годину. 
 
 const newCar = {
-    make: 'Toyota',
-    model: 'Hilux',
-    year: 2020,
-    speed: 180,
-    tank: 80,
-    costFuel: 10,
-    drivers: ['John', 'Dou'],
+    make: 'Ford',
+    model: 'F-150',
+    year: 2022,
+    speed: 200,
+    tank: 100,
+    costFuel: 12,
+    drivers: ['Alice', 'Bob'],
     type: "pickup",
-    description(){
+    description() {
         console.log(`make: ${this.year}, model: ${this.model}, year: ${this.year}, speed: ${this.speed} km/h, tank:${this.tank}l, cost fuel: ${this.costFuel}, type:${this.type}, drivers: ${this.drivers.join(", ")}`)
+    },
+    addDriver(newDriver) {
+        this.drivers = [...this.drivers, newDriver]
     }
 }
 
@@ -36,9 +39,17 @@ class Car {
     description() {
         console.log(`make: ${this.year}, model: ${this.model}, year: ${this.year}, speed: ${this.speed} km/h, tank:${this.tank}l, cost fuel: ${this.costFuel}, type:${this.type}, drivers: ${this.drivers.join(", ")}`)
     };
+    addDriver(newDriver) {
+        this.drivers = [...this.drivers, newDriver]
+    }
 }
 
 const toyota = new Car("Toyota", "Hilux", 2020, 180, 80, 10, "John", "Doe");
 
-toyota.description()
-newCar.description()
+toyota.addDriver('cat')
+toyota.description();
+
+
+newCar.addDriver('vitia');
+newCar.description();
+
