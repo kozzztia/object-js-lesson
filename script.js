@@ -145,5 +145,5 @@ const time = {
 // time.changeSeconds(4520)
 setInterval(() => {
     time.showTime();
-}, 5);
+}, 1000);
 
