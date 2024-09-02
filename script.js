@@ -98,40 +98,47 @@ const time = {
     seconds: 0,
     minutes: 55,
     hours: 23,
-    secondsLimit : 60,
-    minutesLimit : 60,
-    hoursLimit : 24,
-    changeSeconds(time = 1){
+    secondsLimit: 60,
+    minutesLimit: 60,
+    hoursLimit: 24,
+    changeSeconds(time = 1) {
         for (let i = 0; i < time; i++) {
             console.log('tik')
             this.seconds++;
-            if(this.seconds >= this.secondsLimit){
+            if (this.seconds >= this.secondsLimit) {
                 this.seconds = 0;
                 this.changeMinutes()
             }
         }
     },
-    changeMinutes(time = 1){
+    changeMinutes(time = 1) {
         for (let i = 0; i < time; i++) {
             this.minutes++;
-            if(this.minutes >= this.minutesLimit){
+            if (this.minutes >= this.minutesLimit) {
                 this.minutes = 0;
                 this.changeHours()
             }
         }
     },
-    changeHours(time = 1){
+    changeHours(time = 1) {
         for (let i = 0; i < time; i++) {
             this.hours++;
-            if(this.hours >= this.hoursLimit){
+            if (this.hours >= this.hoursLimit) {
                 this.hours = 0;
             }
         }
     },
 
-    showTime(){
+    putZero(num) {
+        if (num >= 10) {
+            return `${num}`
+        } else {
+            return `0${num}`
+        }
+    },
+    showTime() {
         time.changeSeconds(1)
-        timer.innerHTML = `${this.hours}:${this.minutes}:${this.seconds}`
+        timer.innerHTML = `${this.putZero(this.hours)}:${this.putZero(this.minutes)}:${this.putZero(this.seconds)}`
     }
 }
 
